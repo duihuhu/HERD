@@ -109,6 +109,7 @@ void client_exch_dest(struct ctrl_blk *cb)
 		fgets(server_name, buff, fd);
 		fgets(tmp, buff, fd);
 		fgets(sock_port_str, buff, fd);
+		fgets(tmp, buff, fd);
 
 		printf("At client %d, server_name = %s, port = %s\n", cb->id, 
 			server_name, sock_port_str);
