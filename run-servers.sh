@@ -2,7 +2,7 @@
 #	1. Run server processes on the server machine
 #	2. ssh into client machines and run the run-machine.sh script
 
-sh scripts/shm-rm.sh				# Remove hugepages
+#sh scripts/shm-rm.sh				# Remove hugepages
 export ROCE=0			# Don't use RoCE on Apt
 export APT=1
 
@@ -18,7 +18,8 @@ for i in `seq 1 $NUM_SERVERS`; do
 
 	if [ $APT -eq 1 ]		# There is only one socket on Apt's r320 nodes
 	then
-		./main $id $sock_port &
+		echo $id	$sock_port
+		sudo -E ./main $id $sock_port &
 	else
 		if [ $ROCE -eq 1 ]	# Susitna's RoCE RNIC is connected to CPU 0
 		then
