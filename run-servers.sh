@@ -7,7 +7,7 @@ export ROCE=0			# Don't use RoCE on Apt
 export APT=1
 
 NUM_SERVERS=7			# Number of server processes on the server machine	
-NUM_CLIENT_MACHINES=12	# Number of client machines
+NUM_CLIENT_MACHINES=1	# Number of client machines
 
 rm -rf client-tput		# Re-create a folder for clients to write their stuff into
 mkdir client-tput
@@ -41,7 +41,7 @@ done
 for i in `seq 1 $NUM_CLIENT_MACHINES`; do
 	mc=`expr $i + 1`
 	client_id=`expr $mc - 2`
-	ssh -oStrictHostKeyChecking=no node-$mc.RDMA.fawn.apt.emulab.net "cd HERD; ./run-machine.sh $client_id" &
+	ssh -oStrictHostKeyChecking=no ubuntu-183 "cd HERD; ./run-machine.sh $client_id" &
 	echo "Starting client $client_id"
 
 	# Removing this sleep sometimes causes the tput to drop drastically.

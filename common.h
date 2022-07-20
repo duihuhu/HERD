@@ -38,7 +38,7 @@
 	#define MY_SEND_INLINE IBV_SEND_INLINE
 #endif
 
-#define NUM_CLIENTS 36			// Number of client processes
+#define NUM_CLIENTS 3			// Number of client processes
 #define NUM_SERVERS 7			// Number of server processes
 
 #define Q_DEPTH 1024			// Size of all created queues
