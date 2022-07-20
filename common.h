@@ -1,3 +1,5 @@
+#ifndef COMMON_H_
+#define COMMON_H_
 #define _GNU_SOURCE
 #include <errno.h>
 #include <stdio.h>
@@ -246,3 +248,5 @@ inline uint32_t fastrand(uint64_t* seed);
 
 #define SET_PL_IT_MEMCPY_DONE(pl_it) (pl_it.cn |= 0xf00)
 #define GET_PL_IT_MEMCPY_DONE(pl_it) (pl_it->cn & 0xf00)
+
+#endif

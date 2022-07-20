@@ -1,3 +1,5 @@
+#ifndef SIZES_H_
+#define SIZES_H_
 #define K_128 131072
 #define K_128_ 131071
 
@@ -36,5 +38,6 @@
 
 #define M_2048 2147483648
 #define M_2048_ 2147483647
+#endif
 
 
