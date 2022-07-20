@@ -104,8 +104,8 @@ void client_exch_dest(struct ctrl_blk *cb)
 	}
 	for(i = 0; i < NUM_SERVERS; i++) {
 		// Find the server name and port from the "servers" file
-		scanf("%s", server_name);
-		scanf("%s", sock_port_str);
+		// scanf("%s", server_name);
+		// scanf("%s", sock_port_str);
 		fgets(server_name, buff, fd);
 		fgets(tmp, buff, fd);
 		fgets(sock_port_str, buff, fd);
