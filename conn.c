@@ -95,8 +95,9 @@ void client_exch_dest(struct ctrl_blk *cb)
 	struct sockaddr_in serv_addr;
 	struct hostent *server;
 	char server_name[20],sock_port_str[20];
+	char tmp[10];
 	FILE *fd;
-	int buff=6;
+	int buff=5;
 	fd = fopen("servers", "r");
 	if (fd==NULL) {
 		fprintf(stderr, "ERROR open servers files\n");
@@ -106,6 +107,7 @@ void client_exch_dest(struct ctrl_blk *cb)
 		scanf("%s", server_name);
 		scanf("%s", sock_port_str);
 		fgets(server_name, buff, fd);
+		fgets(tmp, buff, fd);
 		fgets(sock_port_str, buff, fd);
 
 		printf("At client %d, server_name = %s, port = %s\n", cb->id, 
