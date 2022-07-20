@@ -3,7 +3,7 @@
 
 num_processes=3			# Number of processes per client machine
 export ROCE=0
-export APT=0
+export APT=1
 
 hi=`expr $num_processes - 1`
 for i in `seq 0 $hi`; do
