@@ -1,4 +1,4 @@
-CFLAGS  := -O3 -Wall -Wno-unused-result -fgnu89-inline
+CFLAGS  := -O3 -Wall -Wno-unused-result -fgnu89-inline -g
 LD      := gcc
 LDFLAGS := ${LDFLAGS} -lrdmacm -libverbs -lrt -lpthread
 
