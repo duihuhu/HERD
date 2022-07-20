@@ -23,8 +23,13 @@ struct PL_IT pipeline[2];		// The pipeline
 union ibv_gid get_gid(struct ibv_context *context)
 {
 	union ibv_gid ret_gid;
-	ibv_query_gid(context, IB_PHYS_PORT, 0, &ret_gid);
-
+	int rc = 0;
+	rc = ibv_query_gid(context, IB_PHYS_PORT, 0, &ret_gid);
+	if (rc)
+	{
+		fprintf(stderr, "could not get gid for port %d, index %d\n", IB_PHYS_PORT, 0);
+		return rc;
+	}
 	fprintf(stderr, "GID: Interface id = %lld subnet prefix = %lld\n", 
 		(long long) ret_gid.global.interface_id, 
 		(long long) ret_gid.global.subnet_prefix);
