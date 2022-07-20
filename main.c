@@ -544,7 +544,11 @@ int main(int argc, char *argv[])
 	dev_list = ibv_get_device_list(NULL);
 	CPE(!dev_list, "Failed to get IB devices list", 0);
 
-	ib_dev = dev_list[is_roce() == 1 ? 1 : 0];
+	if (argc == 2)
+		ib_dev = dev_list[1];
+	else
+		ib_dev = dev_list[0];
+	// ib_dev = dev_list[is_roce() == 1 ? 1 : 0];
 	CPE(!ib_dev, "IB device not found", 0);
 	
 	fprintf(stdout, "ibv_dev name %s\n", ibv_get_device_name(ib_dev));
