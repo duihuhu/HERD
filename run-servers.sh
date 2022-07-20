@@ -38,14 +38,14 @@ for i in `seq 1 $NUM_SERVERS`; do
 	fi
 done
 
-for i in `seq 1 $NUM_CLIENT_MACHINES`; do
-	mc=`expr $i + 1`
-	client_id=`expr $mc - 2`
-	ssh -oStrictHostKeyChecking=no ubuntu-183 "cd HERD; ./run-machine.sh $client_id" &
-	echo "Starting client $client_id"
+# for i in `seq 1 $NUM_CLIENT_MACHINES`; do
+# 	mc=`expr $i + 1`
+# 	client_id=`expr $mc - 2`
+# 	ssh -oStrictHostKeyChecking=no ubuntu-183 "cd HERD; ./run-machine.sh $client_id" &
+# 	echo "Starting client $client_id"
 
-	# Removing this sleep sometimes causes the tput to drop drastically.
-	# Bug: which part of the code requires clients to connect in order?
-	sleep .5
-done
+# 	# Removing this sleep sometimes causes the tput to drop drastically.
+# 	# Bug: which part of the code requires clients to connect in order?
+# 	sleep .5
+# done
 
