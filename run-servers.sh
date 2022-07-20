@@ -4,7 +4,7 @@
 
 shm-rm.sh				# Remove hugepages
 export ROCE=0			# Don't use RoCE on Apt
-export APT=1
+export APT=0
 
 NUM_SERVERS=7			# Number of server processes on the server machine	
 NUM_CLIENT_MACHINES=1	# Number of client machines
