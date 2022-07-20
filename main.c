@@ -546,7 +546,7 @@ int main(int argc, char *argv[])
 
 	ib_dev = dev_list[is_roce() == 1 ? 1 : 0];
 	CPE(!ib_dev, "IB device not found", 0);
-
+	fprint(stdout, "name %s", ibv_get_device_name(ib_dev));
 	// Create queue pairs and modify them to INIT
 	init_ctx(ctx, ib_dev);
 	CPE(!ctx, "Init ctx failed", 0);
