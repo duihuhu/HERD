@@ -28,7 +28,6 @@ union ibv_gid get_gid(struct ibv_context *context)
 	if (rc)
 	{
 		fprintf(stderr, "could not get gid for port %d, index %d\n", IB_PHYS_PORT, 0);
-		return rc;
 	}
 	fprintf(stderr, "GID: Interface id = %lld subnet prefix = %lld\n", 
 		(long long) ret_gid.global.interface_id, 
