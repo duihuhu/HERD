@@ -188,19 +188,19 @@ struct stag {								// An "stag" identifying an RDMA region
 #define S_STG sizeof(struct stag)
 
 // The lossy index and the circular log
-struct IDX_BKT *ht_index;
-char *ht_log;
+extern struct IDX_BKT *ht_index;
+extern char *ht_log;
 
 // Request and response regions, and their RDMA memory-region descriptors
-volatile struct KV *server_req_area;
-volatile struct KV *server_resp_area;
-volatile struct KV *client_req_area;
-volatile struct UD_KV *client_resp_area;
+extern volatile struct KV *server_req_area;
+extern volatile struct KV *server_resp_area;
+extern volatile struct KV *client_req_area;
+extern volatile struct UD_KV *client_resp_area;
 
-struct ibv_mr *server_req_area_mr, *server_resp_area_mr;
-struct ibv_mr *client_resp_area_mr, *client_req_area_mr;
+extern struct ibv_mr *server_req_area_mr, *server_resp_area_mr;
+extern struct ibv_mr *client_resp_area_mr, *client_req_area_mr;
 
-struct stag server_req_area_stag[NUM_SERVERS], client_resp_area_stag[NUM_CLIENTS];
+extern struct stag server_req_area_stag[NUM_SERVERS], client_resp_area_stag[NUM_CLIENTS];
 
 union ibv_gid get_gid(struct ibv_context *context);
 uint16_t get_local_lid(struct ibv_context *context);

@@ -1,5 +1,23 @@
 #include "common.h"
 
+//move variable from common.h to common.c to aviod muldefine
+// The lossy index and the circular log
+struct IDX_BKT *ht_index;
+char *ht_log;
+
+// Request and response regions, and their RDMA memory-region descriptors
+volatile struct KV *server_req_area;
+volatile struct KV *server_resp_area;
+volatile struct KV *client_req_area;
+volatile struct UD_KV *client_resp_area;
+
+struct ibv_mr *server_req_area_mr, *server_resp_area_mr;
+struct ibv_mr *client_resp_area_mr, *client_req_area_mr;
+
+struct stag server_req_area_stag[NUM_SERVERS], client_resp_area_stag[NUM_CLIENTS];
+
+//
+
 union ibv_gid get_gid(struct ibv_context *context)
 {
 	union ibv_gid ret_gid;
