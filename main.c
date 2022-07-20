@@ -514,7 +514,7 @@ int main(int argc, char *argv[])
 	ctx = malloc(sizeof(struct ctrl_blk));
 	
 	ctx->id = atoi(argv[1]);
-
+	
 	// Allocate space for queue-pair attributes
 	if (argc == 4) {
 		ctx->is_client = 1;
@@ -539,7 +539,7 @@ int main(int argc, char *argv[])
 		ctx->local_dgram_qp_attrs = (struct qp_attr *) malloc(S_QPA);
 		ctx->remote_dgram_qp_attrs = (struct qp_attr *) malloc(NUM_CLIENTS * S_QPA);
 	}
-	
+	fprintf(stdout, "%d, %d", ctx->id, ctx->sock_port);
 	// Get an InfiniBand/RoCE device
 	dev_list = ibv_get_device_list(NULL);
 	CPE(!dev_list, "Failed to get IB devices list", 0);

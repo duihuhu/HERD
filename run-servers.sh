@@ -18,7 +18,6 @@ for i in `seq 1 $NUM_SERVERS`; do
 
 	if [ $APT -eq 1 ]		# There is only one socket on Apt's r320 nodes
 	then
-		echo $id	$sock_port
 		sudo -E ./main $id $sock_port &
 	else
 		if [ $ROCE -eq 1 ]	# Susitna's RoCE RNIC is connected to CPU 0
