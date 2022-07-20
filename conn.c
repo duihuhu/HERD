@@ -103,19 +103,18 @@ void client_exch_dest(struct ctrl_blk *cb)
 	}
 	for(i = 0; i < NUM_SERVERS; i++) {
 		// Find the server name and port from the "servers" file
-		// scanf("%s", server_name);
-		// scanf("%s", sock_port_str);
+		scanf("%s", server_name);
+		scanf("%s", sock_port_str);
 		fgets(server_name, buff, fd);
 		fgets(sock_port_str, buff, fd);
 
 		printf("At client %d, server_name = %s, port = %s\n", cb->id, 
 			server_name, sock_port_str);
-		// sock_port = atoi(sock_port_str);
-		sscanf(sock_port_str, '%d', &sock_port);
+		sock_port = atoi(sock_port_str);
+
 		sockfd = socket(AF_INET, SOCK_STREAM, 0);
 		CPE(sockfd < 0, "Error opening socket", 0);
-		sscanf(server_name, '%s', server_name);
-
+	
 		server = gethostbyname(server_name);
 		CPE(server == NULL, "No such host", 0);
 	
