@@ -111,7 +111,7 @@ void client_exch_dest(struct ctrl_blk *cb)
 		printf("At client %d, server_name = %s, port = %s\n", cb->id, 
 			server_name, sock_port_str);
 		// sock_port = atoi(sock_port_str);
-		sscanf(sock_port_str, '%d', sock_port);
+		sscanf(sock_port_str, '%d', &sock_port);
 		sockfd = socket(AF_INET, SOCK_STREAM, 0);
 		CPE(sockfd < 0, "Error opening socket", 0);
 		sscanf(server_name, '%s', server_name);
