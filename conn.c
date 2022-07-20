@@ -95,11 +95,19 @@ void client_exch_dest(struct ctrl_blk *cb)
 	struct sockaddr_in serv_addr;
 	struct hostent *server;
 	char server_name[20],sock_port_str[20];
-
+	FILE *fd;
+	int buff=1024;
+	fd = fopen("servers", "r");
+	if (fd==NULL) {
+		fprintf(stderr, "ERROR open servers files\n");
+	}
 	for(i = 0; i < NUM_SERVERS; i++) {
 		// Find the server name and port from the "servers" file
-		scanf("%s", server_name);
-		scanf("%s", sock_port_str);
+		// scanf("%s", server_name);
+		// scanf("%s", sock_port_str);
+		fgets(server_name, buff, fd);
+		fgets(sock_port_str, buff, fd);
+
 		printf("At client %d, server_name = %s, port = %s\n", cb->id, 
 			server_name, sock_port_str);
 		sock_port = atoi(sock_port_str);
