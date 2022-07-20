@@ -516,7 +516,7 @@ int main(int argc, char *argv[])
 	ctx->id = atoi(argv[1]);
 
 	// Allocate space for queue-pair attributes
-	if (argc == 2) {
+	if (argc == 4) {
 		ctx->is_client = 1;
 		ctx->num_conn_qps = NUM_SERVERS;
 		ctx->num_remote_dgram_qps = NUM_SERVERS;
@@ -544,7 +544,7 @@ int main(int argc, char *argv[])
 	dev_list = ibv_get_device_list(NULL);
 	CPE(!dev_list, "Failed to get IB devices list", 0);
 
-	if (argc == 2)
+	if (argc == 4)
 		ib_dev = dev_list[1];
 	else
 		ib_dev = dev_list[0];
