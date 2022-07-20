@@ -539,8 +539,6 @@ int main(int argc, char *argv[])
 		ctx->local_dgram_qp_attrs = (struct qp_attr *) malloc(S_QPA);
 		ctx->remote_dgram_qp_attrs = (struct qp_attr *) malloc(NUM_CLIENTS * S_QPA);
 	}
-	ctx->id = (int)ctx->id;
-	ctx->sock_port = (int)ctx->sock_port;
 	// fprintf(stdout, "%d,%d", ctx->id, ctx->sock_port);
 	// Get an InfiniBand/RoCE device
 	dev_list = ibv_get_device_list(NULL);
