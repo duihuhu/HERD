@@ -96,7 +96,7 @@ void client_exch_dest(struct ctrl_blk *cb)
 	struct hostent *server;
 	char server_name[20],sock_port_str[20];
 	FILE *fd;
-	int buff=5;
+	int buff=6;
 	fd = fopen("servers", "r");
 	if (fd==NULL) {
 		fprintf(stderr, "ERROR open servers files\n");
