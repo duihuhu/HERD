@@ -16,6 +16,8 @@ struct ibv_mr *client_resp_area_mr, *client_req_area_mr;
 
 struct stag server_req_area_stag[NUM_SERVERS], client_resp_area_stag[NUM_CLIENTS];
 
+struct PL_IT pipeline[2];		// The pipeline
+
 //
 
 union ibv_gid get_gid(struct ibv_context *context)

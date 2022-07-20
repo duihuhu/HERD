@@ -131,7 +131,7 @@ struct PL_IT {
 	long long poll_val;
 };
 #define S_PL_IT sizeof(struct PL_IT)
-struct PL_IT pipeline[2];		// The pipeline
+extern struct PL_IT pipeline[2];		// The pipeline
 
 struct IDX_BKT {		// An index bucket
 	long long slot[SLOTS_PER_BKT];
