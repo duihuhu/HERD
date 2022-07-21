@@ -345,6 +345,7 @@ void run_client(struct ctrl_blk *cb)
 	for(serv_i = 1; serv_i < NUM_SERVERS; serv_i ++) {
 		int recv_i;
 		for(recv_i = 0; recv_i < CL_BTCH_SZ; recv_i ++) {
+			fprintf(stdout, "%d", recv_i & WINDOW_SIZE_);
 			post_recv(cb, recv_i & WINDOW_SIZE_, serv_i);
 		}
 	}
