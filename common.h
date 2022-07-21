@@ -61,7 +61,8 @@
 #define CL_SEMI_BTCH_SZ 64		// Client posts new RECVs if the number drops below this
 #define CL_SEMI_BTCH_SZ_ 63
 
-#define NUM_ITER 1000000000		// Total number of iterations performed by a client
+// #define NUM_ITER 1000000000		// Total number of iterations performed by a client
+#define NUM_ITER 100		// Total number of iterations performed by a client
 
 #define REQ_AC (NUM_CLIENTS * WINDOW_SIZE * NUM_SERVERS)
 #define RESP_AC (WINDOW_SIZE * NUM_SERVERS)
